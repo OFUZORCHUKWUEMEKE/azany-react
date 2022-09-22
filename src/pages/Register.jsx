@@ -74,9 +74,9 @@ const Register = () => {
             //             autoClose: 5000,
             //             hideProgressBar: false,
             //             closeOnClick: true,
-            //             pauseOnHover: true,
-            //             draggable: true,
-            //             progress: undefined,
+            //             pauseOgable: true,
+            //             prnHover: true,
+            //             dragogress: undefined,
             //         });
             if(error.response.data.data.errors.length>1){
                 error.response.data.data.errors.forEach((error)=>{

@@ -5,6 +5,7 @@ import Refer from '../components/Level'
 import Promo from '../components/Promo'
 import Works from '../components/Works'
 import Footer from '../components/Footer'
+import HomePagePro from '../components/Foots'
 const Home = () => {
   return (
     <>
@@ -15,6 +16,7 @@ const Home = () => {
           <Customer/>
           <Works/>
           <Footer/>
+          {/* <HomePagePro/> */}
           
       </div>
     </>

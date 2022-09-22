@@ -54,7 +54,9 @@ export default function SettingsTabs() {
     return (
         <Box sx={{ width: '100%' }}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                <Tabs value={value} variant="scrollable"
+                    scrollButtons={false}
+                    aria-label="scrollable prevent tabs example" onChange={handleChange}>
                     <Tab label="Password" {...a11yProps(0)} />
                     <Tab label="Notification" {...a11yProps(1)} />
                     <Tab label="KYC" {...a11yProps(2)} />
@@ -65,22 +67,22 @@ export default function SettingsTabs() {
                 </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
-                <Password/>
+                <Password />
             </TabPanel>
             <TabPanel value={value} index={1}>
-                <Notifications/>
+                <Notifications />
             </TabPanel>
             <TabPanel value={value} index={2}>
-                <KYC/>
+                <KYC />
             </TabPanel>
             <TabPanel value={value} index={3}>
-                <Earnings/>
+                <Earnings />
             </TabPanel>
             <TabPanel value={value} index={4}>
-                <TwoFactor/>
+                <TwoFactor />
             </TabPanel>
             <TabPanel value={value} index={5}>
-                <Support/>
+                <Support />
             </TabPanel>
         </Box>
     );

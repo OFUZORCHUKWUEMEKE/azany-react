@@ -9,11 +9,12 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 600,
+    width: {sm:400,md:600},
     bgcolor: 'background.paper',
     boxShadow: 24,
     p: 4,
-    borderRadius: '10px'
+    borderRadius: '10px',
+    height:{sm:'40vh',md:'85vh'}
 };
 
 export default function KycModal({ open, handleClose, handleOpen, image ,setUpload,upload}) {
@@ -30,7 +31,7 @@ export default function KycModal({ open, handleClose, handleOpen, image ,setUplo
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <div className='w-4/5 mx-auto'>
+                    <div className='md:w-4/5 w-full mx-auto'>
                         <Typography id="modal-modal-title" variant="h6" component="h2">
                             Upload a photo of your National ID (front)
                         </Typography>
