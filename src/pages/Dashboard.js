@@ -15,12 +15,16 @@ import Skeleton from '@mui/material/Skeleton';
 import axios from 'axios';
 import { UserContext } from '../context/UserContext';
 import axiosJwt from '../components/utils';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+
 const Dashboard = () => {
 
-  const {dispatch,state:user} = useContext(UserContext)
+  const { dispatch, state: user } = useContext(UserContext)
   const token = JSON.parse(localStorage.getItem('token'))
-  const [loading,setLoading] = useState(false)
-  const [details,setDetails] = useState('')
+  const [value,setValue] = useState('')
+  const [copied,setCopied] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [details, setDetails] = useState('')
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -39,27 +43,27 @@ const Dashboard = () => {
 
     setState({ ...state, [anchor]: open });
   };
-  const fetchApi = async()=>{
+  const fetchApi = async () => {
     setLoading(true)
-    const headers={
-      'Content-Type':'application/json',
-      'Authorization':`Bearer ${token}`
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
     }
     try {
       const response = await axiosJwt.get(`https://azany-affiliate.urbantour.org/public/api/auth/fetch_profile_info`)
-      console.log(response.data.data.values[0].profile[0])
-      setDetails(response.data.data.values[0].profile[0])  
-      dispatch({type:"USER_CREATED",payload:response.data.data.values[0].profile[0]})
+      console.log(response.data.data)
+      setDetails(response.data.data.values[0].profile[0])
+      dispatch({ type: "USER_CREATED", payload: response.data.data.values[0].profile[0] })
       setLoading(false)
     } catch (error) {
       setLoading(false)
       console.log(error.response)
     }
- 
+
   }
-  useEffect(()=>{
-       fetchApi()
-  },[])
+  useEffect(() => {
+    fetchApi()
+  }, [])
 
   return (
     <>
@@ -76,8 +80,8 @@ const Dashboard = () => {
             <Stack spacing={2}>
               <div className='p-5 rounded-md md:w-[90%] w-[90%]  mx-auto bg-white'>
                 <div className="space-y-3">
-                  {loading? <Skeleton variant="text" sx={{ fontSize: '1rem' }} />:  <h2 className="text-gray-400">WELCOME {details.name}</h2>}
-                
+                  {loading ? <Skeleton variant="text" sx={{ fontSize: '1rem' }} /> : <h2 className="text-gray-400">WELCOME {details.name}</h2>}
+
                   <h2 className="text-2xl font-bold">Have a good day!</h2>
                 </div>
               </div>
@@ -240,10 +244,14 @@ const Dashboard = () => {
                       <p className="text-white">Referral Code</p>
                       <div className='flex md:flex-row flex-col items-center space-y-3 md:space-y-0 md:space-x-3 w-full'>
                         <div className='p-4 rounded-[20px] space-x-0 bg-white w-full md:w-3/5 flex justify-between items-center'>
-                          <p className='text-gray-400 text-[10px] break-all'>https://www.shopazany.com/spencer244</p>
-                          <div className='space-x-3 flex items-center'>
+                          {loading ? (<Skeleton variant="text" sx={{ fontSize: '1rem' }} />) : <p className='text-gray-400 text-[10px] break-all'>{details.referrer_code}</p>}
+
+                          <div className='space-x-3 flex items-center cursor-pointer'>
                             <p className='text-pink-400'>Copy</p>
-                            <ContentCopyIcon className='text-pink-400' />
+                            <CopyToClipboard text={details?.referrer_code} onCopy={()=>{setCopied(true)}}>
+                              <ContentCopyIcon className='text-pink-400' />
+                            </CopyToClipboard>
+
                           </div>
                         </div>
                         <div className='p-4 rounded-[20px bg-white md:w-2/5 w-full flex justify-between items-center'>
@@ -256,7 +264,6 @@ const Dashboard = () => {
                         </div>
                       </div>
                     </Stack>
-
                   </div>
                 </div>
               </div>

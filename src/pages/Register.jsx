@@ -120,7 +120,7 @@ const Register = () => {
                     <div className="flex-1 hidden md:block">
                         <img src="/images/login.png" className='h-screen object-cover w-full' />
                     </div>
-                    <div className="flex-1 flex flex-col h-screen justify-center w-full items-center">
+                    <div className="flex-1 flex flex-col h-screen justify-center w-4/5 mx-auto  items-center">
                         <div>
                             <div className="py-2 space-y-2">
                                 <h2 className="font-bold text-2xl">Get Started</h2>
