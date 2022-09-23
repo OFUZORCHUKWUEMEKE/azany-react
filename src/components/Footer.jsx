@@ -4,27 +4,49 @@ import styled from 'styled-components';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
-
+import './Footer.css'
 
 
 const HomePagePro = () => {
   return (
     <>
-      <div className='bg-[#0081FE] hidden min-h-[40vh] p-10 justify-center md:flex items-center'>
+      <div className='bg-[#0081FE] min-h-[40vh] p-10 justify-center md:flex items-center'>
         <div className='relative'>
-          <img src="/images/blob.png" className='w-[70%] mx-auto p-6' />
-          <div className='absolute top-[35%] left-[20%] spacing-y-5'>
-            <h2 className='text-2xl font-mono font-bold w-4/5 py-3'>Send us a message for more information</h2>
-            <p className='py-2'>Sign up and enjoy all the advantages we offer you.</p>
-            <div >
-              <p>(470) 255-0365</p>
-            </div>
-            <div>
-              <p>(470) 255-0365</p>
+          <div className='blobbb'>
+            <img src="/images/blob.png" className='w-[70%] images mx-auto p-6' />
+            <div className='absolute texttt  top-[35%] left-[20%] spacing-y-5'>
+              <h2 className='text-2xl font-mono font-bold w-4/5 py-3'>Send us a message for more information</h2>
+              <p className='py-2'>Sign up and enjoy all the advantages we offer you.</p>
+              <div >
+                <p>(470) 255-0365</p>
+              </div>
+              <div>
+                <p>(470) 255-0365</p>
+              </div>
             </div>
           </div>
-          <div className='absolute top-[-5%] left-[55%] spacing-y-5'>
-            <div className='bg-white p-5 shadow-lg h-[68vh] w-[25vw] rounded-md'>
+          <div className='p-2 md:hidden w-[90%] mx-auto h-[250px] bg-white mb-3 rounded-[25px] flex justify-center items-center'>
+            <div className='w-[90%] mx-auto space-y-2'>
+              <h2 className="font-bold text-xl">Send us a message for more information</h2>
+              <p>Sign up and enjoy all the advantages we offer you.</p>
+              <div className='flex space-x-2 items-center'>
+                <IconButton>
+                  <WhatsAppIcon className="text-green-600" />
+                </IconButton>
+                <p>(470) 255-0365</p>
+              </div>
+              <div className='flex space-x-2 items-center'>
+                <IconButton>
+                  <WhatsAppIcon className="text-green-600" />
+                </IconButton>
+                <p>(470) 255-0365</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div className='absolute form top-[-5%] left-[55%] spacing-y-5'>
+            <div className='bg-white p-5 shadow-lg h-[68vh] formic w-[25vw] rounded-md'>
               <div className='w-[90%] mx-auto space-y-3 py-6'>
                 <div className='space-y-3'>
                   <TextField variant='outlined' className='w-full mx-auto' placeholder='full name' />
@@ -43,35 +65,38 @@ const HomePagePro = () => {
                     className='w-full bg-gray-100 p-2'
                   />
                 </div>
-                <div className='py-4'>
-                  <button className='bg-blue-600 text-white rounded-md py-2 px-4'>Submit</button>
+                <div className='py-4 submit'>
+                  <button className='bg-blue-600 text-white rounded-md py-2 px-4 '>Submit</button>
                 </div>
               </div>
 
             </div>
           </div>
-          <div className='absolute bottom-[-7%] right-2 py-4'>
-            <div className='flex items-center space-x-4'>
-              <div className='bg-white h-50 rounded-full flex items-center justify-center'>
-                <IconButton>
-                  <WhatsAppIcon className="text-green-400" />
-                </IconButton>
-              </div>
-              <div className='bg-white h-50 rounded-full flex items-center justify-center'>
-                <IconButton>
-                  <InstagramIcon className="text-red-400" />
-                </IconButton>
-              </div>
-              <div className='bg-white h-50 rounded-full flex items-center justify-center'>
-                <IconButton>
-                  <FacebookIcon className="text-blue-400" />
-                </IconButton>
+          <div className='p-3'>
+            <div className='absolute bottom-[-7%] left-2  py-3'>
+              <div className='flex items-center space-x-4'>
+                <div className='bg-white h-50 rounded-full flex items-center justify-center'>
+                  <IconButton>
+                    <WhatsAppIcon className="text-green-600" />
+                  </IconButton>
+                </div>
+                <div className='bg-white h-50 rounded-full flex items-center justify-center'>
+                  <IconButton>
+                    <InstagramIcon className="text-red-600" />
+                  </IconButton>
+                </div>
+                <div className='bg-white h-50 rounded-full flex items-center justify-center'>
+                  <IconButton>
+                    <FacebookIcon className="text-blue-600" />
+                  </IconButton>
+                </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
-      
+
     </>
   );
 }

@@ -6,8 +6,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { CircularProgress, IconButton } from '@mui/material';
 import SwipeableTemporaryDrawer from '../components/drawer';
 import { ToastContainer, toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 const Register = () => {

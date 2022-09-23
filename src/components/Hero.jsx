@@ -22,6 +22,7 @@ const Hero = () => {
     const handleChange = (event) => {
         setAge(event.target.value);
     };
+    const token = JSON.parse(localStorage.getItem('token'))
     const [state, setState] = React.useState({
         top: false,
         left: false,
@@ -90,8 +91,18 @@ const Hero = () => {
                                     </Select>
                                 </FormControl>
                             </div>
-                            <Link to="/register"><button className="bg-[#E51B48] py-2 px-6 rounded-md text-white" >Register</button></Link>
-                            <Link to="/login"><button className='py-2 px-8 border border-[#E51B48] rounded-md text-[#E51B48]' >Login</button></Link>
+                            {token ? (
+                                <>
+                                     <Link to="/dashboard"><button className="bg-[#E51B48] py-2 px-6 rounded-md text-white" >DASHBOARD</button></Link>                       
+                                </>
+
+                            ) : (
+                                <>
+                                    <Link to="/register"><button className="bg-[#E51B48] py-2 px-6 rounded-md text-white" >Register</button></Link>
+                                    <Link to="/login"><button className='py-2 px-8 border border-[#E51B48] rounded-md text-[#E51B48]' >Login</button></Link>
+                                </>
+                            )}
+
                         </div>
                     </div>
                 </nav>

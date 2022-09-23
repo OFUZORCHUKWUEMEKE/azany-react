@@ -9,8 +9,11 @@ import FileUploadIcon from '@mui/icons-material/FileUpload';
 import KycModal from '../components/KycModal';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-
+import KycDialog from '../components/KycDialog';
+import axiosJwt from '../components/utils';
 const KYC = () => {
     const token = JSON.parse(localStorage.getItem('token'))
     const [id_type, setIdType] = React.useState('');
@@ -19,8 +22,13 @@ const KYC = () => {
         setIdType(event.target.value);
     };
     const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
     const inputRef = useRef()
     const [images, setImages] = useState()
     const [id_document, setDocument] = useState()
@@ -29,13 +37,13 @@ const KYC = () => {
     const handleImage = () => {
         inputRef.current.click()
     }
-    const handleChange = (e) => {
-        setImages(e.target.files[0])
-        setDocument(e.target.files[0])
-        console.log(e.target.files[0])
-        handleOpen()
-    }
-    console.log(id_document)
+    // const handleChange = (e) => {
+    //     setImages(e.target.files[0])
+    //     setDocument(e.target.files[0])
+    //     console.log(e.target.files[0])
+    //     handleOpen()
+    // }
+    // console.log(id_document)
 
 
 
@@ -67,15 +75,34 @@ const KYC = () => {
         try {
             console.log('Processing......')
             console.log({ ...state, id_document })
-
             console.log(id_document)
-            const response = await axios.post(`https://azany-affiliate.urbantour.org/public/api/auth/kyc_update`, { ...state, id_type, id_document }, { headers: headers })
+            const formdata = new FormData()
+            formdata.append('name',state.name)
+            formdata.append('date_of_birth',state.date_of_birth)
+            formdata.append('nationality',state.nationality)
+            formdata.append('country_of_resident',state.country_of_resident)
+            formdata.append('city',state.city)
+            formdata.append('phone',state.phone)
+            formdata.append('id_type',id_type)
+            formdata.append('id_number',state.id_number)
+            formdata.append('id_document',id_document)
+            const response = await axiosJwt.post(`https://azany-affiliate.urbantour.org/public/api/auth/kyc_update`, formdata)
             console.log(response.data)
+            toast.success('Account Successfully Updated', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
             setLoading(false)
         } catch (error) {
             setLoading(false)
             console.log(error.response)
         }
+        // console.log({ id_document, ...state, id_type })
     }
 
     return (
@@ -139,6 +166,17 @@ const KYC = () => {
                                     </Select>
                                 </FormControl>
                             </div>
+                            <ToastContainer
+                                position="top-right"
+                                autoClose={5000}
+                                hideProgressBar={false}
+                                newestOnTop={false}
+                                closeOnClick
+                                rtl={false}
+                                pauseOnFocusLoss
+                                draggable
+                                pauseOnHover
+                            />
                             <div className='space-y-3'>
                                 {upload && images ? (
                                     <>
@@ -154,7 +192,12 @@ const KYC = () => {
                                 ) : (
                                     <div className='h-40 md:w-3/5 w-full flex justify-center items-center border-2 border-[#E51B48] border-dotted cursor-pointer' onClick={handleImage}>
                                         <div className='space-y-3 flex justify-center items-center flex-col'>
-                                            <input type="file" ref={inputRef} className="hidden" onChange={handleChange} />
+                                            <input type="file" ref={inputRef} className="hidden" onChange={(e) => {
+                                                // handleChange()
+                                                setImages(e.target.files[0])
+                                                setDocument(e.target.files[0])
+                                                handleClickOpen()
+                                            }} />
                                             <IconButton>
                                                 <FileUploadIcon className='text-[#E51B48]' />
                                             </IconButton>
@@ -174,7 +217,8 @@ const KYC = () => {
                                     )}
                                 </button>
                             </div>
-                            <KycModal open={open} handleClose={handleClose} handleOpen={handleOpen} image={images} setUpload={setUpload} upload={upload} />
+                            {/* <KycModal open={open} handleClose={handleClose} handleOpen={handleOpen} image={images} setUpload={setUpload} upload={upload} /> */}
+                            <KycDialog open={open} handleClose={handleClose} handleClickOpen ={handleClickOpen} image={images} setUpload={setUpload} upload={upload}/>
                         </Stack>
                     </form>
 

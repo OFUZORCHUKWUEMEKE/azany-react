@@ -1,0 +1,98 @@
+@media(max-width:1240px){
+    .form{
+        top: -5%;
+    }
+    .images{
+        margin-top: 50px;
+    }
+    .formic{
+        height: 60vh;
+    }
+    .submit{
+        margin-bottom: 100px;
+        padding-top: .4rem;
+        padding-bottom: 1rem
+    }
+   
+}
+
+@media(max-width:1076px){
+    .form{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 90%;
+        margin: auto;
+    }
+    .formic{
+        height: 60vh;
+        width: 100%;
+        margin: auto;
+        /* position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center; */
+        
+    }
+    .texttt{
+        top: 15%;
+    }
+    .images{
+        width: 90%;
+        margin: auto;
+        padding: .5rem
+    }
+}
+
+@media(max-width:1008px){
+    .images{
+        width: 95%;
+        margin: auto;
+        padding: .5rem;
+        height:250px;
+    }
+}
+@media(max-width:1008px){
+      .texttt{
+   
+      }
+      .blobbb{
+        display: none;
+      }
+}
+@media(max-width:900px){
+      .texttt{
+         top: 0%;
+         left: 8%;
+      }
+      .texttt h2{
+        font-size: 14px;
+        font-weight: bolder;
+        padding-bottom: 20px;
+        margin-top: 10px;
+      }
+      .form{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 90%;
+        margin: auto;
+    }
+    .formic{
+        height: 60vh;
+        width: 100%;
+        margin: auto;
+        /* position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center; */
+        
+    }
+     
+}

@@ -11,7 +11,6 @@ import Login from './pages/Login';
 import Forgotpassword from './pages/Forgotpassword';
 import Otp from './pages/Otp';
 import Resetpassword from './pages/ResetPassword.jsx';
-
 import Transaction from './pages/Transaction';
 import Dashboard from './pages/Dashboard';
 import Downlines from './pages/Downlines';
@@ -23,6 +22,7 @@ import Downline from './pages/ProfileDownline';
 import DownlineSort from './pages/DownlineSort';
 import Otpp from './pages/Otpp';
 import PrivateRoute from './components/PrivateRoute';
+
 function App() {
   return (
     <>

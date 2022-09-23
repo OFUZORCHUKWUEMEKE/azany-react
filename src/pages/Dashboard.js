@@ -14,6 +14,7 @@ import SwipeableTemporaryDrawer from '../components/drawer';
 import Skeleton from '@mui/material/Skeleton';
 import axios from 'axios';
 import { UserContext } from '../context/UserContext';
+import axiosJwt from '../components/utils';
 const Dashboard = () => {
 
   const {dispatch,state:user} = useContext(UserContext)
@@ -45,9 +46,9 @@ const Dashboard = () => {
       'Authorization':`Bearer ${token}`
     }
     try {
-      const response = await axios.get(`https://azany-affiliate.urbantour.org/public/api/auth/fetch_profile_info`,{headers:headers})
+      const response = await axiosJwt.get(`https://azany-affiliate.urbantour.org/public/api/auth/fetch_profile_info`)
       console.log(response.data.data.values[0].profile[0])
-      setDetails(response.data.data.values[0].profile[0])
+      setDetails(response.data.data.values[0].profile[0])  
       dispatch({type:"USER_CREATED",payload:response.data.data.values[0].profile[0]})
       setLoading(false)
     } catch (error) {

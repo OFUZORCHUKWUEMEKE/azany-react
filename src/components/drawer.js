@@ -56,7 +56,7 @@ export default function SwipeableTemporaryDrawer({ toggleDrawer, state, setState
                 {token ? (
                     <div className='p-2 w-full py-10 mb-6 space-y-4 flex flex-col  items-center min-h-screen'>
                         <div className='space-y-3'>
-                            <img alt="" src="/images/dashboard.png" className='object-cover' />
+                            {/* <img alt="" src="/images/dashboard.png" className='object-cover' /> */}
                             <p className='font-bold'>{user?.name}</p>
                         </div>
                         {/* <Link to="/dashboard"> */}
