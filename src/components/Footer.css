@@ -24,7 +24,7 @@
         align-items: center;
         top: 0;
         left: 0;
-        width: 90%;
+        width: 95%;
         margin: auto;
     }
     .formic{
@@ -94,5 +94,8 @@
         align-items: center; */
         
     }
+    /* .submit{
+        margin-bottom: 20px;
+    } */
      
 }

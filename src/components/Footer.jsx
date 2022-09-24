@@ -1,4 +1,4 @@
-import { IconButton, TextareaAutosize, TextField } from '@mui/material';
+import { IconButton, Stack, TextareaAutosize, TextField } from '@mui/material';
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
@@ -46,34 +46,36 @@ const HomePagePro = () => {
           </div>
 
           <div className='absolute form top-[-5%] left-[55%] spacing-y-5'>
-            <div className='bg-white p-5 shadow-lg h-[68vh] formic w-[25vw] rounded-md'>
-              <div className='w-[90%] mx-auto space-y-3 py-6'>
-                <div className='space-y-3'>
-                  <TextField variant='outlined' className='w-full mx-auto' placeholder='full name' />
-                </div>
-                <div className='space-y-3'>
-                  <TextField variant='outlined' className='w-full mx-auto' placeholder='Enter Phone Number' />
-                </div>
-                <div className='space-y-3'>
-                  <TextField variant='outlined' className='w-full mx-auto' placeholder='Enter Email Address' />
-                </div>
-                <div className='space-y-3'>
-                  <TextareaAutosize
-                    aria-label="minimum height"
-                    minRows={3}
-                    placeholder="Minimum 3 rows"
-                    className='w-full bg-gray-100 p-2'
-                  />
-                </div>
-                <div className='py-4 submit'>
-                  <button className='bg-blue-600 text-white rounded-md py-2 px-4 '>Submit</button>
-                </div>
+            <div className='bg-white p-4 shadow-lg h-[68vh] formic w-[25vw] rounded-md'>
+              <div className='w-[90%] mx-auto space-y-3 py-2'>
+                {/* <Stack spacing={3}> */}
+                  <div className='space-y-3'>
+                    <TextField variant='outlined' className='w-full mx-auto' placeholder='full name' />
+                  </div>
+                  <div className='space-y-3'>
+                    <TextField variant='outlined' className='w-full mx-auto' placeholder='Enter Phone Number' />
+                  </div>
+                  <div className='space-y-3'>
+                    <TextField variant='outlined' className='w-full mx-auto' placeholder='Enter Email Address' />
+                  </div>
+                  <div className='space-y-3'>
+                    <TextareaAutosize
+                      aria-label="minimum height"
+                      minRows={3}
+                      placeholder="Minimum 3 rows"
+                      className='w-full bg-gray-100 p-2'
+                    />
+                  </div>
+                  <div className='py-4 submit'>
+                    <button className='bg-blue-600 text-white rounded-md py-2 px-4 '>Submit</button>
+                  </div>
+                {/* </Stack> */}
               </div>
 
             </div>
           </div>
-          <div className='p-3'>
-            <div className='absolute bottom-[-7%] left-2  py-3'>
+          <div className='p-8'>
+            <div className='absolute bottom-[-7%] left-2  py-5'>
               <div className='flex items-center space-x-4'>
                 <div className='bg-white h-50 rounded-full flex items-center justify-center'>
                   <IconButton>
