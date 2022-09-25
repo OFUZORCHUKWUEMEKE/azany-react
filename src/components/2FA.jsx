@@ -34,7 +34,7 @@ const TwoFactor = () => {
   return (
         <>
           <div className='p-2 py-5'>
-                <div className='w-4/5'>
+                <div className='w-full'>
                     <Stack spacing={4}>
                         <div>
                             <h3 className='font-bold'>Set new Security question</h3>

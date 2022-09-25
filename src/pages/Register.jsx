@@ -11,8 +11,8 @@ import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 const Register = () => {
-    const {dispatch} =useContext(AuthContext)
-    const [loading,setLoading] = useState(false)
+    const { dispatch } = useContext(AuthContext)
+    const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
     const emailRef = useRef()
     const nameRef = useRef()
@@ -51,7 +51,7 @@ const Register = () => {
             const res = await axios.post(`https://azany-affiliate.urbantour.org/public/api/auth/register`, { name, email, password })
             console.log(res.data.data.user.id)
             setLoading(false)
-            dispatch({type:"REGISTER",payload:{user_id:res.data.data.user.id,email:email,signup:true}})
+            dispatch({ type: "REGISTER", payload: { user_id: res.data.data.user.id, email: email, signup: true } })
             toast('Successful', {
                 position: "top-right",
                 autoClose: 5000,
@@ -61,10 +61,10 @@ const Register = () => {
                 draggable: true,
                 progress: undefined,
             });
-          
-            setTimeout(()=>{
+
+            setTimeout(() => {
                 navigate('/otp')
-            },3000)    
+            }, 3000)
         } catch (error) {
             setLoading(false)
             console.log(error.response)
@@ -78,8 +78,8 @@ const Register = () => {
             //             prnHover: true,
             //             dragogress: undefined,
             //         });
-            if(error.response.data.data.errors.length>1){
-                error.response.data.data.errors.forEach((error)=>{
+            if (error.response.data.data.errors.length > 1) {
+                error.response.data.data.errors.forEach((error) => {
                     toast.error(error, {
                         position: "top-right",
                         autoClose: 5000,
@@ -90,7 +90,7 @@ const Register = () => {
                         progress: undefined,
                     });
                 })
-            }else{
+            } else {
                 toast.error(error.response.data.data.errors[0], {
                     position: "top-right",
                     autoClose: 5000,
@@ -101,21 +101,22 @@ const Register = () => {
                     progress: undefined,
                 });
             }
-           
+
         }
 
         console.log({ name, email, password, confirm })
     }
     return (
         <>
-            <div className="max-w-full min-h-screen">
-                <div className='bg-gray-50 block md:hidden shadow-md p-3 w-full'>
-                    <div className='w-4/5'>
-                        <IconButton onClick={toggleDrawer("left", true)}>
-                            <MenuIcon />
-                        </IconButton>
-                    </div>
+            <div className='bg-gray-50 block md:hidden shadow-md p-3 w-full'>
+                <div className='w-4/5'>
+                    <IconButton onClick={toggleDrawer("left", true)}>
+                        <MenuIcon />
+                    </IconButton>
                 </div>
+            </div>
+            <div className=" w-4/5 mx-auto md:w-full min-h-screen">
+
                 <div className="flex items-center">
                     <div className="flex-1 hidden md:block">
                         <img src="/images/login.png" className='h-screen object-cover w-full' />
@@ -144,15 +145,15 @@ const Register = () => {
                                     <input className="w-full py-2 px-4 bg-gray-100 outline-none rounded-md" placeholder='Enter Confirm Password' ref={confirmRef} required type="password" onChange={(e) => setConfirm(e.target.value)} />
                                 </div>
                                 <div className="w-full py-3">
-                                    <button type='submit' className={loading?`text-white w-full rounded-md bg-[#74454f] py-2 px-4`:`text-white bg-[#E51B48] w-full rounded-md  py-2 px-4`}>
-                                         {loading?(
+                                    <button type='submit' className={loading ? `text-white w-full rounded-md bg-[#74454f] py-2 px-4` : `text-white bg-[#E51B48] w-full rounded-md  py-2 px-4`}>
+                                        {loading ? (
                                             <div className='flex items-center justify-center'>
-                                                <CircularProgress className='text-green-500'/>
+                                                <CircularProgress className='text-green-500' />
                                             </div>
-                                         ):(
+                                        ) : (
                                             <p>Continue</p>
-                                         )}
-                                       </button>
+                                        )}
+                                    </button>
                                 </div>
                                 <div className="mt-3 py-4">
                                     <p className='text-center'>Already have an account ? <Link className="cursor-pointer" to="/login"><span className="text-[#E51B48]  cursor-pointer">Login</span></Link></p>
