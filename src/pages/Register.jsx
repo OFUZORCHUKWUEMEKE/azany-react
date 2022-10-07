@@ -154,7 +154,7 @@ const Register = () => {
                                             <p>Continue</p>
                                         )}
                                     </button>
-                                </div>
+                                </div>  
                                 <div className="mt-3 py-4">
                                     <p className='text-center'>Already have an account ? <Link className="cursor-pointer" to="/login"><span className="text-[#E51B48]  cursor-pointer">Login</span></Link></p>
                                 </div>
