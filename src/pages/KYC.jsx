@@ -86,7 +86,7 @@ const KYC = () => {
             formdata.append('id_type',id_type)
             formdata.append('id_number',state.id_number)
             formdata.append('id_document',id_document)
-            const response = await axiosJwt.post(`https://azany-affiliate.urbantour.org/public/api/auth/kyc_update`, formdata)
+            const response = await axiosJwt.post(`http://azany-affiliate.urbantour.org/api/auth/kyc_update`, formdata)
             console.log(response.data)
             toast.success('Account Successfully Updated', {
                 position: "top-right",

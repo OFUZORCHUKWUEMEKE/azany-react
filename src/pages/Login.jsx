@@ -14,7 +14,7 @@ const Login = () => {
         setLoading(true)
         e.preventDefault()
         try {
-            const res = await axios.post(`https://azany-affiliate.urbantour.org/public/api/auth/login`, { email, password })
+            const res = await axios.post(`http://azany-affiliate.urbantour.org/api/auth/login`, { email, password })
             console.log(res.data)
             setLoading(false)
             navigate("/dashboard")

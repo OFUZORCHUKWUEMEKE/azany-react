@@ -16,7 +16,7 @@ const Sidebar = () => {
           'Authorization': `${token}`
       }
       try {
-          const response = await axios.post(`https://azany-affiliate.urbantour.org/public/api/auth/logout`, {}, { headers: headers })
+          const response = await axios.post(`http://azany-affiliate.urbantour.org/api/auth/logout`, {}, { headers: headers })
           console.log(response.data)
           localStorage.removeItem('token')
           navigate('/')

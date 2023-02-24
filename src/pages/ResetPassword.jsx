@@ -38,7 +38,7 @@ const Resetpassword = () => {
         e.preventDefault()
         try {
             setLoading(true)
-            const response = await axios.post(`https://azany-affiliate.urbantour.org/public/api/auth/new_password_entry?user_id=${user_id}&password=${password}&password_confirmation=${confirm_password}`, {})
+            const response = await axios.post(`http://azany-affiliate.urbantour.org/api/auth/new_password_entry?user_id=${user_id}&password=${password}&password_confirmation=${confirm_password}`, {})
 
             console.log(response.data)
             setLoading(false)

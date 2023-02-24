@@ -52,7 +52,7 @@ export default function ResponsiveDialog({ open, handleClickOpen, handleClose, s
             'Authorization': `Bearer ${token}`
         }
         try {
-            const response = await axiosJwt.post(`https://azany-affiliate.urbantour.org/public/api/auth/set_security_question?question=${question}&answer=${answer}`, {})
+            const response = await axiosJwt.post(`http://azany-affiliate.urbantour.org/api/auth/set_security_question?question=${question}&answer=${answer}`, {})
             console.log(response.data)
             setLoading(false)
             toast.success('Successful', {

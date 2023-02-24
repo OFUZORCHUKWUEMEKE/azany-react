@@ -50,7 +50,7 @@ const Dashboard = () => {
       'Authorization': `Bearer ${token}`
     }
     try {
-      const response = await axiosJwt.get(`https://azany-affiliate.urbantour.org/public/api/auth/fetch_profile_info`)
+      const response = await axiosJwt.get(`http://azany-affiliate.urbantour.org/api/auth/fetch_profile_info`)
       console.log(response.data.data)
       setDetails(response.data.data.values[0].profile[0])
       dispatch({ type: "USER_CREATED", payload: response.data.data.values[0].profile[0] })

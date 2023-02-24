@@ -48,7 +48,7 @@ const Register = () => {
         setLoading(true)
         e.preventDefault()
         try {
-            const res = await axios.post(`https://azany-affiliate.urbantour.org/public/api/auth/register`, { name, email, password })
+            const res = await axios.post(`http://azany-affiliate.urbantour.org/api/auth/register`, { name, email, password })
             console.log(res.data.data.user.id)
             setLoading(false)
             dispatch({ type: "REGISTER", payload: { user_id: res.data.data.user.id, email: email, signup: true } })

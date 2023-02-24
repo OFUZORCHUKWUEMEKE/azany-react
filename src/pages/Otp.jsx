@@ -44,7 +44,7 @@ const Otp = () => {
     console.log('processing.......')
     console.log(value)
     try {
-          const response = await axios.post(`https://azany-affiliate.urbantour.org/public/api/auth/verify_email_code`, { user_id, code: parseInt(value) })
+          const response = await axios.post(`http://azany-affiliate.urbantour.org/api/auth/verify_email_code`, { user_id, code: parseInt(value) })
           console.log(response.data.data)
           toast('Successful', {
             position: "top-right",

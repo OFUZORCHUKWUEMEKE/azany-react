@@ -37,7 +37,7 @@ export default function PinDialog({ open, handleClickOpen, handleClose, setOpen 
             'Authorization': `Bearer ${token}`
         }
         try {
-            const response = await axiosJwt.post(`https://azany-affiliate.urbantour.org/public/api/auth/set_security_pin?pin=${pin}&pin_confirmation=${pin_confirmation}`, {})
+            const response = await axiosJwt.post(`http://azany-affiliate.urbantour.org/api/auth/set_security_pin?pin=${pin}&pin_confirmation=${pin_confirmation}`, {})
             console.log(response.data)
             setLoading(false)
             handleClose()
